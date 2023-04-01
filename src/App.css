@@ -36,3 +36,136 @@
     transform: rotate(360deg);
   }
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Navbar~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.navbar {
+  grid-area: n;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "links logo";
+  background-color: #141414 ;
+  height: 70px;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.8rem;
+  justify-content: center;
+  align-items: center;
+  color: #54dbfb;
+  justify-content: end;
+  margin-right: 4%;
+}
+
+.links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  justify-content: start;
+  margin-left: 4%;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-items a:visited {
+  color: white;
+}
+
+.logo a:visited {
+  text-decoration: none;
+  color: #54dbfb;
+}
+
+.logo a {
+  text-decoration: none;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~UserCard~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.landing-container {
+  display: grid;
+  grid-template-rows: repeat(2, 15% 85%);
+  grid-template-columns: 1fr;
+  grid-template-areas: "headerText" "users";
+
+}
+
+.headerText {
+  grid-area: headerText;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+.users-container {
+  grid-area: users;
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.user-card {
+  display: grid;
+  width: 400px;
+  height: 400px;
+  grid-template-rows: repeat(2, 300px 50px);
+  margin: 0 auto;
+}
+
+.user a {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+.user img {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+}
+
+.user h2 {
+  margin: 4% auto;
+  color: white;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Movies~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.movie-catalog {
+  margin: 5% 0;
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-gap: 65px 110px;
+  justify-content: center;
+  align-items: start;
+}
+
+.thumbnail {
+  grid-area: img;
+  cursor: pointer;
+}
+
+.thumbnail img {
+  width: 350px;
+  height: 450px;
+  border-radius: 8px;
+}
