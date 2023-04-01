@@ -14,14 +14,14 @@ const users = [
         budget: 150,
         movies: []
     },
-    {
-        id: 3,
-        name: "Rana",
-        // img: "https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",
-        img: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.jpg",
-        budget: 700,
-        movies: []
-    }
+    // {
+    //     id: 3,
+    //     name: "Rana",
+    //     // img: "https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",
+    //     img: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.jpg",
+    //     budget: 700,
+    //     movies: []
+    // },
     // {
     //     id: 4,
     //     name: "Rania",

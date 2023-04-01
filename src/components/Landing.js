@@ -3,11 +3,11 @@ import User from './User';
 
 function Landing({users}) {
     return (
-        <div class="landing-container">
-        <div class="headerText">
+        <div className="landing-container">
+        <div className="headerText">
             <h2>WHO'S WATCHING</h2>
         </div>
-        <div class="users-container">
+        <div className="users-container">
             {users.map(u => <User user={u}/>)}
         </div>
     </div>
