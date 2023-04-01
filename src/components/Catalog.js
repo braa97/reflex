@@ -1,34 +1,61 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import Movie from './Movie';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Movie from "./Movie";
 
-function Catalog({movies, getUserData}) {
-    const { userId } = useParams()
-    let user = {}
+function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser}) {
+  const { userId } = useParams();
+  let user = {};
 
-    const getUserDataCallBack = () => {
-        user = getUserData(userId)
-    }
+  const getUserDataCallBack = () => {
+    user = getUserData(userId);
+  };
 
-    getUserDataCallBack()
-    
-    return (
-        <div>
-            <div className='searchField-budget'>
-                <input type='text' placeholder='Search'/>
-                <div className='budget-label'>
-                    <h2>budget: ${user ? user.budget : ""}</h2>
-                </div>
-            </div>
-            <div className='catalog-label'>
-                <h2>Catalog:</h2>
-            </div>
-            <div className="movie-catalog">
-                {movies.map(m => <Movie key={m.id} movie={m} />)}
-            </div>
+  getUserDataCallBack();
+
+  return (
+    <div>
+      <div className="searchField-budget">
+        <input type="text" placeholder="Search" />
+        <div className="budget-label">
+          {user ? <h2>budget: ${user.budget}</h2> : ""}
         </div>
-    );
-  }
-  
-  export default Catalog;
-  
+      </div>
+      {user && user.movies.length > 0 ? (
+        <div>
+          <div className="catalog-label">
+            <h2>Rented:</h2>
+          </div>
+          <div className="movie-catalog">
+            {user.movies.map((m) => (
+              <Movie
+                userId={userId}
+                key={m.id}
+                movie={m}
+                isUserRentedMovie={isUserRentedMovie}
+                addMovieToUser={addMovieToUser}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="catalog-label">
+        <h2>Catalog:</h2>
+      </div>
+      <div className="movie-catalog">
+        {movies.map((m) => (
+          <Movie
+            userId={userId}
+            key={m.id}
+            movie={m}
+            isUserRentedMovie={isUserRentedMovie}
+            addMovieToUser={addMovieToUser}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Catalog;

@@ -1,34 +1,106 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import USERS from './data/users'
-import MOVIES from './data/movies'
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
-import { useState } from 'react';
-import Catalog from './components/Catalog';
-
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import USERS from "./data/users";
+import MOVIES from "./data/movies";
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing";
+import { useState } from "react";
+import Catalog from "./components/Catalog";
 
 function App() {
-
-  const [users, setUsers] = useState(USERS)
-  const [movies, setMovies] = useState(MOVIES)
+  const [users, setUsers] = useState(USERS);
+  const [movies, setMovies] = useState(MOVIES);
+  const [isLoggedin, setIsLoggedIn] = useState(false);
 
   const getUserData = (id) => {
-    let user = users.find(u => {
-      if (u.id == id)
-        return u
+    let user = users.find((u) => {
+      if (u.id == id) {
+        return u;
+      } 
+    });
+    return user;
+  };
+
+  const getMovieData = (movieId) => {
+    let movie = movies.find(m => {
+      if (m.id == movieId) {
+        return m
+      }
     })
-    return user
+    return movie
   }
-  
+
+  const addMovieToUser = (userId, movieId) => {
+    let flag = 0
+    let newUserArray = [...users]
+    let movie = getMovieData(movieId)
+    movie.isRented = true
+    newUserArray.map(u => {
+      if (u.id == userId) {
+        if (u.movies.some(um => um.id == movieId)) {
+          flag = 1
+        }
+        else {
+          u.movies.push(movie)
+        }
+      }
+    })
+    if (flag == 1) {
+      return
+    }
+    else {
+      setUsers(newUserArray)
+    }
+  };
+
+  const isUserRentedMovie = (userId, movieId) => {
+    let flag = 0
+    if (isLoggedin) {
+      let user = getUserData(userId);
+      if (user.movies.length != 0) {
+        user.movies.map((m) => {
+          if (m.id == movieId) {
+            flag = 1;
+          }
+        });
+      }
+      else {
+        return false
+      }
+    }
+    if (flag == 1) {
+      return true
+    }
+    else {
+      return false;
+    }
+  };
+
+  const loginLogout = () => {
+    setIsLoggedIn(isLoggedin ? false : true);
+  };
+
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar isLoggedin={isLoggedin} loginLogout={loginLogout} />
       </div>
       <Routes>
-          <Route path="/" element={<Landing users={users}/>} />
-          <Route path='/catalog/:userId' element={<Catalog getUserData={getUserData} movies={movies} />} />
+        <Route
+          path="/"
+          element={<Landing users={users} loginLogout={loginLogout} />}
+        />
+        <Route
+          path="/catalog/:userId?"
+          element={
+            <Catalog
+              getUserData={getUserData}
+              movies={movies}
+              isUserRentedMovie={isUserRentedMovie}
+              addMovieToUser={addMovieToUser}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
