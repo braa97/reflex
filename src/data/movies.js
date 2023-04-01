@@ -71,6 +71,78 @@ const movies = [
     descrShort:
       "Hiccup, a Viking, must kill a dragon to mark his passage into manhood and be initiated into his tribe. However, he ends up doing the exact opposite by befriending a deadly dragon, Night Fury."
   },
+  {
+    id: 9,
+    isRented: false,
+    title: "Tetris",
+    year: 2023,
+    img: "https://m.media-amazon.com/images/M/MV5BZmZmNTdiYjMtZDdmNi00ZGU4LThkYmQtZTFhZWNlYmUxYWZkXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+    descrShort:
+      "Henk Rogers discovers Tetris in 1988, and then risks everything by travelling to the Soviet Union, where he joins forces with inventor Alexey Pajitnov to bring the game to the masses."
+  },
+  {
+    id: 10,
+    isRented: false,
+    title: "Coco",
+    year: 2017,
+    img: "https://lumiere-a.akamaihd.net/v1/images/p_coco_19736_fd5fa537.jpeg",
+    descrShort:
+      "Miguel pursues his love for singing in spite of his family's ban on music. He stumbles into the Land of the Dead, where he learns about his great-great-grandfather who was a legendary singer."
+  },
+  {
+    id: 11,
+    isRented: false,
+    title: "John Wick",
+    year: 2014,
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71WiYBT2QsL._AC_UF894,1000_QL80_.jpg",
+    descrShort:
+      "John Wick, a retired hitman, is forced to return to his old ways after a group of Russian gangsters steal his car and kill a puppy gifted to him by his late wife."
+  },
+  {
+    id: 12,
+    isRented: false,
+    title: "Moana",
+    year: 2016,
+    img: "https://image.tmdb.org/t/p/original/6iHQpFiTg0QbKYac5Mprhx7tXo3.jpg",
+    descrShort:
+      "Moana, daughter of chief Tui, embarks on a journey to return the heart of goddess Te Fitti from Maui, a demigod, after the plants and the fish on her island start dying due to a blight."
+  },
+  {
+    id: 13,
+    isRented: false,
+    title: "Interstellar",
+    year: 2014,
+    img: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    descrShort:
+      "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans."
+  },
+  {
+    id: 14,
+    isRented: false,
+    title: "Shrek",
+    year: 2001,
+    img: "https://img.fruugo.com/product/2/43/14581432_max.jpg",
+    descrShort:
+      "Shrek, an ogre, embarks on a journey with a donkey to rescue Princess Fiona from a vile lord and regain his swamp."
+  },
+  {
+    id: 15,
+    isRented: false,
+    title: "The Dark Knight",
+    year: 2008,
+    img: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
+    descrShort:
+      "After Gordon, Dent and Batman begin an assault on Gotham's organised crime, the mobs hire the Joker, a psychopathic criminal mastermind who offers to kill Batman and bring the city to its knees."
+  },
+  {
+    id: 16,
+    isRented: false,
+    title: "Avengers: Endgame",
+    year: 2019,
+    img: "https://cdn.marvel.com/content/2x/MLou2_Payoff_1-Sht_Online_DOM_v7_Sm.jpg",
+    descrShort:
+      "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance."
+  },
 ];
 
 export default movies ;

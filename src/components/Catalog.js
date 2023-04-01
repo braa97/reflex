@@ -2,13 +2,16 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Movie from "./Movie";
 
-function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser}) {
+function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, removeMovieFromUser}) {
   const { userId } = useParams();
   let user = {};
 
   const getUserDataCallBack = () => {
     user = getUserData(userId);
   };
+
+    // to do: add function to return a div with rented movies
+  const renderRentedMovies = () => {}
 
   getUserDataCallBack();
 
@@ -32,7 +35,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser}) {
                 key={m.id}
                 movie={m}
                 isUserRentedMovie={isUserRentedMovie}
-                addMovieToUser={addMovieToUser}
+                removeMovieFromUser={removeMovieFromUser}
               />
             ))}
           </div>

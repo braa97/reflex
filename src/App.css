@@ -198,12 +198,12 @@
 .thumbnail {
   cursor: pointer;
   width: 350px;
-  height: 450px;
+  height: 480px;
 }
 
 .thumbnail img {
   width: 350px;
-  height: 450px;
+  height: 480px;
   border-radius: 8px;
 }
 

@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function Navbar({isLoggedin, loginLogout}) {
     
-    // const loginLogoutCallBack = () => {
-    //     loginLogout()
-    // }
+    const loginLogoutCallBack = () => {
+        loginLogout()
+    }
     
     return (
         <div className="navbar">
@@ -13,7 +13,7 @@ function Navbar({isLoggedin, loginLogout}) {
             </div>
             <div className="links">
                 <div id="home" className="nav-items">
-                    <Link to={"/"}><i className="fa-solid fa-house"></i>&nbsp;Home</Link>
+                    <Link to={"/"} onClick={loginLogoutCallBack}><i className="fa-solid fa-house"></i>&nbsp;Home</Link>
                 </div>
                 <div id="catalog" className="nav-items">
                     {isLoggedin ? 

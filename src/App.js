@@ -42,6 +42,7 @@ function App() {
         }
         else {
           u.movies.push(movie)
+          u.budget -= 20
         }
       }
     })
@@ -52,6 +53,19 @@ function App() {
       setUsers(newUserArray)
     }
   };
+
+  const removeMovieFromUser = (userId, movieId) => {
+    let newUserArray = [...users]
+    newUserArray.map(u => {
+      if (u.id == userId) {
+        let userIndex = newUserArray.indexOf(u)
+        let movie = getMovieData(movieId)
+        const movieIndex = u.movies.indexOf(movie)
+        newUserArray[userIndex].movies.splice(movieIndex, 1)
+        setUsers(newUserArray)
+      }
+    })
+  }
 
   const isUserRentedMovie = (userId, movieId) => {
     let flag = 0
@@ -98,6 +112,7 @@ function App() {
               movies={movies}
               isUserRentedMovie={isUserRentedMovie}
               addMovieToUser={addMovieToUser}
+              removeMovieFromUser={removeMovieFromUser}
             />
           }
         />
