@@ -1,14 +1,21 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import User from './User';
 
-function Landing({users, loginLogout}) {
+function Landing({users, setUserId, logUserOut}) {
+
+    const logOut = () => {
+        logUserOut()
+    }
+
+    logOut()
+
     return (
         <div className="landing-container">
         <div className="headerText">
             <h2>WHO'S WATCHING</h2>
         </div>
         <div className="users-container">
-            {users.map(u => <User user={u} loginLogout={loginLogout} />)}
+            {users.map(u => <User key={u.id} user={u} setUserId={setUserId}/>)}
         </div>
     </div>
     );

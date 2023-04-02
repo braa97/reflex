@@ -7,7 +7,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
   const { userId } = useParams();
   let user = {};
   const [search, setSearch] = useState('')
-  const [moviesInCatalog, setMoviesInCatalog] = useState(movies)
+  const [moviesInCatalog, setMoviesInCatalog] = useState([...movies])
 
   const getUserDataCallBack = () => {
     user = getUserData(userId);

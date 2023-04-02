@@ -9,10 +9,10 @@ import Catalog from "./components/Catalog";
 import Description from "./components/Description";
 
 function App() {
-  const [users, setUsers] = useState(USERS);
-  const [movies, setMovies] = useState(MOVIES);
-  const [isLoggedin, setIsLoggedIn] = useState(false);
-
+  const [users, setUsers] = useState([...USERS]);
+  const [movies, setMovies] = useState([...MOVIES]);
+  const [userStateId, setUserId] = useState("undefined");
+  console.log(userStateId);
   const getUserData = (id) => {
     let user = users.find((u) => {
       if (u.id == id) {
@@ -21,6 +21,10 @@ function App() {
     });
     return user;
   };
+
+  const logUserOut = () => {
+    setUserId("undefined")
+}
 
   const getMovieData = (movieId) => {
     let movie = movies.find((m) => {
@@ -39,7 +43,7 @@ function App() {
     newUserArray.map((u) => {
       if (u.id == userId) {
         if (u.budget < 3) {
-          flag = 1
+          flag = 1;
         }
         if (u.movies.some((um) => um.id == movieId)) {
           flag = 1;
@@ -64,15 +68,15 @@ function App() {
         let movie = getMovieData(movieId);
         const movieIndex = u.movies.indexOf(movie);
         newUserArray[userIndex].movies.splice(movieIndex, 1);
-        newUserArray[userIndex].budget += 3
+        newUserArray[userIndex].budget += 3;
         setUsers(newUserArray);
       }
     });
   };
 
   const isUserRentedMovie = (userId, movieId) => {
-    let flag = 0;
-    if (isLoggedin) {
+    if (userId != "undefined") {
+      let flag = 0;
       let user = getUserData(userId);
       if (user.movies.length != 0) {
         user.movies.map((m) => {
@@ -83,28 +87,24 @@ function App() {
       } else {
         return false;
       }
+      if (flag == 1) {
+        return true;
+      } else {
+        return false;
+      }
     }
-    if (flag == 1) {
-      return true;
-    } else {
-      return false;
+    else {
+      return
     }
-  };
-
-  const loginLogout = () => {
-    setIsLoggedIn(isLoggedin ? false : true);
   };
 
   return (
     <Router>
       <div className="App">
-        <Navbar isLoggedin={isLoggedin} loginLogout={loginLogout} />
+        <Navbar userStateId={userStateId} />
       </div>
       <Routes>
-        <Route
-          path="/"
-          element={<Landing users={users} loginLogout={loginLogout} />}
-        />
+        <Route path="/" element={<Landing users={users} setUserId={setUserId} logUserOut={logUserOut} />} />
         <Route
           path="/:userId?/catalog"
           element={
