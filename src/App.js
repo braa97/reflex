@@ -38,6 +38,9 @@ function App() {
     movie.isRented = true;
     newUserArray.map((u) => {
       if (u.id == userId) {
+        if (u.budget < 3) {
+          flag = 1
+        }
         if (u.movies.some((um) => um.id == movieId)) {
           flag = 1;
         } else {

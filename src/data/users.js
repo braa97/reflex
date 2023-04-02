@@ -3,7 +3,7 @@ const users = [
         id: 1,
         name: "Baraa",
         img: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg",
-        budget: 200,
+        budget: 9,
         movies: []
     },
     {
