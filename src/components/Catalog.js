@@ -9,6 +9,12 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
   const [search, setSearch] = useState('')
   const [moviesInCatalog, setMoviesInCatalog] = useState(movies)
 
+  const getUserDataCallBack = () => {
+    user = getUserData(userId);
+  };
+
+  getUserDataCallBack();
+
   const handleChange = (event) => {
     setSearch(event.target.value)
 
@@ -30,15 +36,8 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
       }
     }
   }
-
-  const getUserDataCallBack = () => {
-    user = getUserData(userId);
-  };
-
     // to do: add function to return a div with rented movies
   const renderRentedMovies = () => {}
-
-  getUserDataCallBack();
 
   return (
     <div>
