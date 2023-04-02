@@ -8,7 +8,7 @@ function User({user, loginLogout}) {
     return (
         <div className="user-card">
             <div className="user">
-                <Link to={`/catalog/${user.id}`} onClick={loginLogoutCallBack}>
+                <Link to={`/${user.id}/catalog`} onClick={loginLogoutCallBack}>
                     <img src={user.img}/>
                     <h2>{user.name}</h2>
                 </Link>

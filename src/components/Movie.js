@@ -22,7 +22,9 @@ function Movie({ movie, userId, isUserRentedMovie, addMovieToUser , removeMovieF
         ) : (
           <i className={`fa-solid fa-circle-plus`} onClick={addMovieToUserCallBack}></i>
         )}
-        <img src={movie.img} />
+        <Link to={`/${userId}/catalog/${movie.id}`}>
+          <img src={movie.img} />
+        </Link>
       </div>
     </div>
   );

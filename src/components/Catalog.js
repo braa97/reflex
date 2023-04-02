@@ -1,10 +1,35 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Movie from "./Movie";
+import { useState } from "react";
 
 function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, removeMovieFromUser}) {
   const { userId } = useParams();
   let user = {};
+  const [search, setSearch] = useState('')
+  const [moviesInCatalog, setMoviesInCatalog] = useState(movies)
+
+  const handleChange = (event) => {
+    setSearch(event.target.value)
+
+    if (event.target.value == "") {
+      setMoviesInCatalog(movies)
+    }
+    else {
+      try {
+        let newMoviesArray = []
+        movies.map(movie => {
+          if (movie.title.toLowerCase().includes(event.target.value)) {
+            newMoviesArray.push(movie)
+          }
+        })
+        setMoviesInCatalog(newMoviesArray)
+      }
+      catch(error) {
+        console.log(error);
+      }
+    }
+  }
 
   const getUserDataCallBack = () => {
     user = getUserData(userId);
@@ -18,7 +43,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
   return (
     <div>
       <div className="searchField-budget">
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" onChange={handleChange} value={search} />
         <div className="budget-label">
           {user ? <h2>budget: ${user.budget}</h2> : ""}
         </div>
@@ -47,13 +72,14 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
         <h2>Catalog:</h2>
       </div>
       <div className="movie-catalog">
-        {movies.map((m) => (
+        {moviesInCatalog.map((m) => (
           <Movie
             userId={userId}
             key={m.id}
             movie={m}
             isUserRentedMovie={isUserRentedMovie}
             addMovieToUser={addMovieToUser}
+            removeMovieFromUser={removeMovieFromUser}
           />
         ))}
       </div>

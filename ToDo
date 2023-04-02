@@ -1,0 +1,7 @@
+To do:
+    Make code cleaner.
+    Divide code into more functions.
+    Create a data handler file so you can store all the functions in it.
+    Add more movies, I can't stress this enough, ADD MORE MOVIES.
+    When in movie description, when clicking on catalog, it routes us to the catalog page but with no user. FIX IT.
+    You can make call back functions on the "onClick" methods by writing it like this: onClick={() => {function(parameter)}}.

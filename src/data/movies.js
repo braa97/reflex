@@ -143,6 +143,33 @@ const movies = [
     descrShort:
       "After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance."
   },
+  {
+    id: 17,
+    isRented: false,
+    title: "How to Train Your Dragon: The Hidden World",
+    year: 2019,
+    img: "https://m.media-amazon.com/images/M/MV5BMjIwMDIwNjAyOF5BMl5BanBnXkFtZTgwNDE1MDc2NTM@._V1_.jpg",
+    descrShort:
+      "Hiccup aims to unite the vikings and the dragons in order to bring peace on the island of Berk. However, he must stop the evil Grimmel and his devious plans to wipe out all dragons."
+  },
+  {
+    id: 18,
+    isRented: false,
+    title: "The Revenant",
+    year: 2015,
+    img: "https://m.media-amazon.com/images/M/MV5BMDE5OWMzM2QtOTU2ZS00NzAyLWI2MDEtOTRlYjIxZGM0OWRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
+    descrShort:
+      "Hugh Glass, a legendary frontiersman, is severely injured in a bear attack and is abandoned by his hunting crew. He uses his skills to survive and take revenge on his companion who betrayed him."
+  },
+  {
+    id: 19,
+    isRented: false,
+    title: "Spider-Man: Far from Home",
+    year: 2019,
+    img: "https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+    descrShort:
+      "Peter Parker, the beloved superhero Spider-Man, faces four destructive elemental monsters while on holiday in Europe. Soon, he receives help from Mysterio, a fellow hero with mysterious origins."
+  },
 ];
 
 export default movies ;
