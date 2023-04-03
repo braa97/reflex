@@ -12,18 +12,18 @@ function Description({getMovieData}) {
 
   return (
     <div>
-      <div class="movie-details">
-        <div class="movie-image-container">
+      <div className="movie-details">
+        <div className="movie-image-container">
           <img src={movie.img}/>
         </div>
-        <div class="movie-data">
-          <div class="movie-title">
+        <div className="movie-data">
+          <div className="movie-title">
             <h1>{movie.title}</h1>
           </div>
-          <div class="movie-year">
+          <div className="movie-year">
             <b>{movie.year}</b>
           </div>
-          <div class="movie-description">
+          <div className="movie-description">
             <b>Description:</b>
             <p>{movie.descrShort}</p>
           </div>

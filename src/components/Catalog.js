@@ -18,7 +18,6 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
   const getRentedData = () => {
     if (userId != "undefined") {
       let localStorageUserData = JSON.parse(localStorage.getItem("users"));
-      console.log(localStorageUserData);
       let index = localStorageUserData.findIndex((u) => u.id == userId);
       if (localStorageUserData[index].movies.length > 0) {
         return (
@@ -64,8 +63,6 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
       }
     }
   };
-  // to do: add function to return a div with rented movies
-  const renderRentedMovies = () => {};
 
   return (
     <div>

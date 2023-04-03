@@ -57,6 +57,7 @@ function App() {
 
   const rentReturnMovie = (userId, movieId, btnString) => {
     if (userId != "undefined") {
+      const PRICE = 3
       let newUserArray = JSON.parse(localStorage.getItem("users"));
       let userIndex = newUserArray.findIndex((u) => u.id == userId);
       let movie = getMovieData(movieId);
@@ -66,19 +67,32 @@ function App() {
         
         if (isUserRentedMovie(userId, movieId)) {
           newUserArray[userIndex].movies.splice(movieIndex, 1);
+          newUserArray[userIndex].budget += PRICE
           localStorage.setItem("users", JSON.stringify(newUserArray));
           setUsers(newUserArray);
         }
         else {
-          newUserArray[userIndex].movies.push(movie);
-          localStorage.setItem("users", JSON.stringify(newUserArray));
-          setUsers(newUserArray);
+          if (newUserArray[userIndex].budget >= 3) {
+            newUserArray[userIndex].movies.push(movie);
+            newUserArray[userIndex].budget -= PRICE
+            localStorage.setItem("users", JSON.stringify(newUserArray));
+            setUsers(newUserArray);
+          }
+          else {
+            alert("Insufficient funds")
+          }
         }
       }
       else {
-        newUserArray[userIndex].movies.push(movie);
-        localStorage.setItem("users", JSON.stringify(newUserArray));
-        setUsers(newUserArray);
+        if (newUserArray[userIndex].budget >= 3) {
+          newUserArray[userIndex].movies.push(movie);
+          newUserArray[userIndex].budget -= PRICE
+          localStorage.setItem("users", JSON.stringify(newUserArray));
+          setUsers(newUserArray);
+        }
+        else {
+          alert("Insufficient funds")
+        }
       }
     }
     else {
