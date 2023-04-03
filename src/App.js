@@ -12,89 +12,77 @@ function App() {
   const [users, setUsers] = useState([...USERS]);
   const [movies, setMovies] = useState([...MOVIES]);
   const [userStateId, setUserId] = useState("undefined");
-  console.log(userStateId);
-  const getUserData = (id) => {
-    let user = users.find((u) => {
-      if (u.id == id) {
-        return u;
-      }
-    });
-    return user;
+
+  if (localStorage.getItem("users") == null) {
+    localStorage.setItem("users", JSON.stringify([...users]));
+  }
+
+  const getUserData = (userId) => {
+    return users.find((user) => user.id == userId);
   };
 
-  const logUserOut = () => {
-    setUserId("undefined")
-}
+  // const getUserIndex = (userId) => {
+  //   let user = getUserData(userId);
+  //   console.log(user);
+  //   return users.indexOf(user);
+  // }
 
   const getMovieData = (movieId) => {
-    let movie = movies.find((m) => {
-      if (m.id == movieId) {
-        return m;
-      }
-    });
-    return movie;
+    return movies.find((movie) => movie.id == movieId);
   };
 
-  const addMovieToUser = (userId, movieId) => {
-    let flag = 0;
-    let newUserArray = [...users];
-    let movie = getMovieData(movieId);
-    movie.isRented = true;
-    newUserArray.map((u) => {
-      if (u.id == userId) {
-        if (u.budget < 3) {
-          flag = 1;
-        }
-        if (u.movies.some((um) => um.id == movieId)) {
-          flag = 1;
-        } else {
-          u.movies.push(movie);
-          u.budget -= 3;
-        }
-      }
-    });
-    if (flag == 1) {
-      return;
-    } else {
-      setUsers(newUserArray);
-    }
-  };
+  // const getMovieIndex = (userId, movieId) => {
+  //   let user = getUserData(userId);
+  //   let userIndex = getUserIndex(user)
+  //   let movie = getMovieData(movieId)
+  //   return users[userIndex].movies.indexOf(movie);
+  // }
 
-  const removeMovieFromUser = (userId, movieId) => {
-    let newUserArray = [...users];
-    newUserArray.map((u) => {
-      if (u.id == userId) {
-        let userIndex = newUserArray.indexOf(u);
-        let movie = getMovieData(movieId);
-        const movieIndex = u.movies.indexOf(movie);
-        newUserArray[userIndex].movies.splice(movieIndex, 1);
-        newUserArray[userIndex].budget += 3;
-        setUsers(newUserArray);
-      }
-    });
+  const logUserOut = () => {
+    setUserId("undefined");
   };
 
   const isUserRentedMovie = (userId, movieId) => {
     if (userId != "undefined") {
-      let flag = 0;
-      let user = getUserData(userId);
-      if (user.movies.length != 0) {
-        user.movies.map((m) => {
-          if (m.id == movieId) {
-            flag = 1;
-          }
-        });
-      } else {
-        return false;
-      }
-      if (flag == 1) {
+      let newUserArray = [...JSON.parse(localStorage.getItem("users"))];
+      let userIndex = newUserArray.findIndex((u) => u.id == userId);
+      if (newUserArray[userIndex].movies.findIndex((m) => m.id == movieId) !=-1) {
         return true;
-      } else {
+      } 
+      else {
         return false;
       }
     }
+  };
+
+  const rentReturnMovie = (userId, movieId, btnString) => {
+    if (userId != "undefined") {
+      let newUserArray = JSON.parse(localStorage.getItem("users"));
+      let userIndex = newUserArray.findIndex((u) => u.id == userId);
+      let movie = getMovieData(movieId);
+
+      if (newUserArray[userIndex].movies.length > 0) {
+        let movieIndex = newUserArray[userIndex].movies.findIndex((m) => m.id == movieId);
+        
+        if (isUserRentedMovie(userId, movieId)) {
+          newUserArray[userIndex].movies.splice(movieIndex, 1);
+          localStorage.setItem("users", JSON.stringify(newUserArray));
+          setUsers(newUserArray);
+        }
+        else {
+          newUserArray[userIndex].movies.push(movie);
+          localStorage.setItem("users", JSON.stringify(newUserArray));
+          setUsers(newUserArray);
+        }
+      }
+      else {
+        newUserArray[userIndex].movies.push(movie);
+        localStorage.setItem("users", JSON.stringify(newUserArray));
+        setUsers(newUserArray);
+      }
+    }
     else {
-      return
+      return;
     }
   };
 
@@ -104,7 +92,16 @@ function App() {
         <Navbar userStateId={userStateId} />
       </div>
       <Routes>
-        <Route path="/" element={<Landing users={users} setUserId={setUserId} logUserOut={logUserOut} />} />
+        <Route
+          path="/"
+          element={
+            <Landing
+              users={users}
+              setUserId={setUserId}
+              logUserOut={logUserOut}
+            />
+          }
+        />
         <Route
           path="/:userId?/catalog"
           element={
@@ -112,8 +109,7 @@ function App() {
               getUserData={getUserData}
               movies={movies}
               isUserRentedMovie={isUserRentedMovie}
-              addMovieToUser={addMovieToUser}
-              removeMovieFromUser={removeMovieFromUser}
+              rentReturnMovie={rentReturnMovie}
             />
           }
         />

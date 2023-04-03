@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import Movie from "./Movie";
 import { useState } from "react";
 
-function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, removeMovieFromUser}) {
+function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
   const { userId } = useParams();
   let user = {};
-  const [search, setSearch] = useState('')
-  const [moviesInCatalog, setMoviesInCatalog] = useState([...movies])
+  const [search, setSearch] = useState("");
+  const [moviesInCatalog, setMoviesInCatalog] = useState([...movies]);
 
   const getUserDataCallBack = () => {
     user = getUserData(userId);
@@ -15,58 +15,72 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
 
   getUserDataCallBack();
 
+  const getRentedData = () => {
+    if (userId != "undefined") {
+      let localStorageUserData = JSON.parse(localStorage.getItem("users"));
+      console.log(localStorageUserData);
+      let index = localStorageUserData.findIndex((u) => u.id == userId);
+      if (localStorageUserData[index].movies.length > 0) {
+        return (
+          <div>
+            <div className="catalog-label">
+              <h2>Rented:</h2>
+            </div>
+            <div className="movie-catalog">
+              {localStorageUserData[index].movies.map((m) => (
+                <Movie
+                  userId={userId}
+                  key={m.id}
+                  movie={m}
+                  isUserRentedMovie={isUserRentedMovie}
+                  rentReturnMovie={rentReturnMovie}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      }
+    } else {
+      return;
+    }
+  };
+
   const handleChange = (event) => {
-    setSearch(event.target.value)
+    setSearch(event.target.value);
 
     if (event.target.value == "") {
-      setMoviesInCatalog(movies)
-    }
-    else {
+      setMoviesInCatalog(movies);
+    } else {
       try {
-        let newMoviesArray = []
-        movies.map(movie => {
+        let newMoviesArray = [];
+        movies.map((movie) => {
           if (movie.title.toLowerCase().includes(event.target.value)) {
-            newMoviesArray.push(movie)
+            newMoviesArray.push(movie);
           }
-        })
-        setMoviesInCatalog(newMoviesArray)
-      }
-      catch(error) {
+        });
+        setMoviesInCatalog(newMoviesArray);
+      } catch (error) {
         console.log(error);
       }
     }
-  }
-    // to do: add function to return a div with rented movies
-  const renderRentedMovies = () => {}
+  };
+  // to do: add function to return a div with rented movies
+  const renderRentedMovies = () => {};
 
   return (
     <div>
       <div className="searchField-budget">
-        <input type="text" placeholder="Search" onChange={handleChange} value={search} />
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={handleChange}
+          value={search}
+        />
         <div className="budget-label">
           {user ? <h2>budget: ${user.budget}</h2> : ""}
         </div>
       </div>
-      {user && user.movies.length > 0 ? (
-        <div>
-          <div className="catalog-label">
-            <h2>Rented:</h2>
-          </div>
-          <div className="movie-catalog">
-            {user.movies.map((m) => (
-              <Movie
-                userId={userId}
-                key={m.id}
-                movie={m}
-                isUserRentedMovie={isUserRentedMovie}
-                removeMovieFromUser={removeMovieFromUser}
-              />
-            ))}
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
+      {getRentedData()}
       <div className="catalog-label">
         <h2>Catalog:</h2>
       </div>
@@ -77,8 +91,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie , addMovieToUser, remo
             key={m.id}
             movie={m}
             isUserRentedMovie={isUserRentedMovie}
-            addMovieToUser={addMovieToUser}
-            removeMovieFromUser={removeMovieFromUser}
+            rentReturnMovie={rentReturnMovie}
           />
         ))}
       </div>
