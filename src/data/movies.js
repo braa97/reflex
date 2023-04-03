@@ -260,6 +260,105 @@ const movies = [
     descrShort:
       "When a rogue army of humans kills Caesar's wife and son, he sets out to exact revenge. But his quest for retribution reveals his darker instincts even as he makes a startling discovery.",
   },
+  {
+    id: 30,
+    isRented: false,
+    title: "Fight Club",
+    year: 1999,
+    img: "https://lumiere-a.akamaihd.net/v1/images/au_20cs_fight_club_poster_bd27ffe3.jpeg",
+    descrShort:
+      "Unhappy with his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. Soon, their venture spirals down into something sinister.",
+  },
+  {
+    id: 31,
+    isRented: false,
+    title: "Blade Runner 2049",
+    year: 2017,
+    img: "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_.jpg",
+    descrShort:
+      "K, an officer with the Los Angeles Police Department, unearths a secret that could create chaos. He goes in search of a former blade runner who has been missing for over three decades.",
+  },
+  {
+    id: 32,
+    isRented: false,
+    title: "The Batman",
+    year: 2022,
+    img: "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_FMjpg_UX1000_.jpg",
+    descrShort:
+      "Batman is called to intervene when the mayor of Gotham City is murdered. Soon, his investigation leads him to uncover a web of corruption, linked to his own dark past.",
+  },
+  {
+    id: 33,
+    isRented: false,
+    title: "Gifted",
+    year: 2017,
+    img: "https://www.themoviedb.org/t/p/original/9Ts7Vc4wLlpI9oox9mkVUE1tBHy.jpg",
+    descrShort:
+      "Frank, a single man raising his genius niece, Mary, gets into a legal battle with his mother, Evelyn, over her custody. However, Evelyn will do anything to make Mary complete her mother's project.",
+  },
+  {
+    id: 34,
+    isRented: false,
+    title: "Your Name.",
+    year: 2016,
+    img: "https://m.media-amazon.com/images/M/MV5BNDBlYmY3MzktMTgyOS00MTAwLTlkZDMtMGUzNDIyNTU2NjcyXkEyXkFqcGdeQXVyMTAyOTE2ODg0._V1_.jpg",
+    descrShort:
+      "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
+  },
+  {
+    id: 35,
+    isRented: false,
+    title: "The Martian",
+    year: 2015,
+    img: "https://lumiere-a.akamaihd.net/v1/images/image_a119dd78.jpeg?region=0%2C0%2C800%2C1200",
+    descrShort:
+      "Mark Watney is stranded on the planet of Mars after his crew leaves him behind, presuming him to be dead due to a storm. With minimum supplies, Mark struggles to keep himself alive.",
+  },
+  {
+    id: 36,
+    isRented: false,
+    title: "Escape Room",
+    year: 2019,
+    img: "https://www.themoviedb.org/t/p/original/8Ls1tZ6qjGzfGHjBB7ihOnf7f0b.jpg",
+    descrShort:
+      "Six people from different walks of life participate in an escape room competition to win ten thousand dollars. Things change when they find themselves in horrifying circumstances.",
+  },
+  {
+    id: 37,
+    isRented: false,
+    title: "The Jungle Book",
+    year: 2016,
+    img: "https://lumiere-a.akamaihd.net/v1/images/p_thejunglebook2016_19751_6b8cfcec.jpeg?region=0%2C0%2C540%2C810",
+    descrShort:
+      "Mowgli is a boy brought up in the jungle by a pack of wolves. When Shere Khan, a tiger, threatens to kill him, a panther and a bear help him escape his clutches.",
+  },
+  {
+    id: 38,
+    isRented: false,
+    title: "Me Before You",
+    year: 2016,
+    img: "https://m.media-amazon.com/images/M/MV5BMTQ2NjE4NDE2NV5BMl5BanBnXkFtZTgwOTcwNDE5NzE@._V1_.jpg",
+    descrShort:
+      "Louisa Clark accepts the job of being a caretaker of Will Traynor, a rigid man who has paralysis. However, her life transforms as the two, gradually, form a bond and later fall in love.",
+  },
+  {
+    id: 39,
+    isRented: false,
+    title: "Big Hero 6",
+    year: 2014,
+    img: "https://m.media-amazon.com/images/M/MV5BMDliOTIzNmUtOTllOC00NDU3LWFiNjYtMGM0NDc1YTMxNjYxXkEyXkFqcGdeQXVyNTM3NzExMDQ@._V1_.jpg",
+    descrShort:
+      "Hiro, a robotics prodigy, joins hands with Baymax in order to avenge his brother's death. They then team up with Hiro's friends to form a team of high-tech heroes.",
+  },
+  {
+    id: 40,
+    isRented: false,
+    title: "Predestination",
+    year: 2014,
+    img: "https://m.media-amazon.com/images/M/MV5BMjE2NzNkODAtYjVlMS00NWFjLTlmOGUtMzI4N2Q0M2RlMzlmXkEyXkFqcGdeQXVyNDI3NjU1NzQ@._V1_.jpg",
+    descrShort:
+      "As his last assignment, a temporal agent is tasked to travel back in time and prevent a bomb attack in New York in 1975. The hunt, however, turns out to be beyond the bounds of possibility.",
+  },
 ];
 
 export default movies;

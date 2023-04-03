@@ -39,7 +39,8 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
           </div>
         );
       }
-    } else {
+    } 
+    else {
       return;
     }
   };

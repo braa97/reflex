@@ -10,9 +10,9 @@ function Movie({ movie, userId, isUserRentedMovie, rentReturnMovie}) {
     <div className="movie">
       <div className="thumbnail">
         {isUserRentedMovieCallBack() ? (
-          <i className={`fa-solid fa-circle-minus`} onClick={() => rentReturnMovie(userId, movie.id)}></i>
+          <i className={`fa-solid fa-circle-minus`} onClick={() => rentReturnMovie(userId, movie.id, "return")}></i>
         ) : (
-          <i className={`fa-solid fa-circle-plus`} onClick={() => rentReturnMovie(userId, movie.id)}></i>
+          <i className={`fa-solid fa-circle-plus`} onClick={() => rentReturnMovie(userId, movie.id, "rent")}></i>
         )}
         <Link to={`/${userId}/catalog/${movie.id}`}>
           <img src={movie.img} />

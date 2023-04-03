@@ -99,7 +99,7 @@
   grid-template-rows: repeat(2, 15% 85%);
   grid-template-columns: 1fr;
   grid-template-areas: "headerText" "users";
-
+  margin-top: 3%;
 }
 
 .headerText {
@@ -111,6 +111,7 @@
   font-family: 'Comic Neue', cursive;
   color: white;
   font-size: 2rem;
+  margin-bottom: 5%;
 }
 
 .users-container {
@@ -212,7 +213,7 @@
   color: white;
   position: absolute;
   font-size: 1.8rem;
-  margin: 10px 0 0 310px;
+  margin: 15px 0 0 310px;
   box-shadow: 3px 3px 5px #262626;
   border-radius: 25px;
 }
