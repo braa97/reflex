@@ -92,7 +92,7 @@
 .logo a {
   text-decoration: none;
 }
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~User Card~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .landing-container {
   display: grid;
@@ -122,6 +122,8 @@
   margin-top: 5%;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~User Card~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 .user-card {
   display: grid;
   width: 400px;
@@ -141,7 +143,25 @@
 .user img {
   width: 300px;
   height: 300px;
-  border-radius: 8px;
+  border-radius: 12px;
+}
+
+.addProfile {
+  display: grid;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.addProfile:hover {
+  background-color: #0a0a0a;
+}
+
+.addProfile .fa-circle-plus {
+  font-size: 9rem;
+  color: #6b6b6b;
 }
 
 .user h2 {
@@ -209,7 +229,7 @@
   border-radius: 8px;
 }
 
-.fa-circle-plus {
+.thumbnail .fa-circle-plus {
   color: white;
   position: absolute;
   font-size: 1.8rem;
@@ -218,7 +238,7 @@
   border-radius: 25px;
 }
 
-.fa-circle-minus {
+.thumbnail .fa-circle-minus {
   color: white;
   position: absolute;
   font-size: 1.8rem;
@@ -300,3 +320,139 @@
   font-size: 2rem;
   font-weight: 900;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Profile~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.profile-page-container {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-profile {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  width: 35%;
+  height: 60vh;
+  color: white;
+}
+
+.name-field {
+  display: flex;
+  align-items: end;
+  margin: 0 0 0 2%;
+  font-size: 2rem;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.profile-image-container-search {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.profile-image-container-search img {
+  width: 140px;
+  border-radius: 12px;
+}
+
+.profile-image-container-search input {
+  width: 60%;
+  margin: 0 0 0 4%;
+  height: 3vh;
+  background-color: #686767;
+  font-size: 1.3rem;
+  color: #d6d6d6;
+}
+
+.profile-image-container-search input::placeholder {
+  color: #d6d6d6;
+  font-size: 1.3rem;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons {
+  width: 35%;
+  height: 4vh;
+  margin: 5% 0;
+}
+
+.saveBtn {
+  width: 100%;
+}
+
+.saveBtn a {
+  height: 4vh;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons button {
+  width: 100%;
+  background-color: #b50101;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 4vh;
+}
+
+.buttons button:hover {
+  background-color: #5c0101;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ImagePicker~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.ImagePicker-page {
+  display: grid;
+  margin: 3%;
+  grid-template-rows: repeat(2, 5% 95%);
+  grid-template-columns: 1fr;
+  grid-template-areas: "ImagePickerHeader" "images";
+}
+
+.ImagePicker-page-header {
+  grid-area: ImagePickerHeader;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Comic Neue', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+.images-container {
+  grid-area: images;
+  display: grid;
+  grid-template-columns: repeat(6, 250px);
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.image-card {
+  display: grid;
+  width: 400px;
+  height: 250px;
+  grid-template-rows: repeat(2, 300px 50px);
+  margin: 0 auto;
+}
+
+.image a {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+.image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+}
+

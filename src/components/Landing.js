@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import User from './User';
 
 function Landing({users, setUserId, logUserOut}) {
+    const USERS_LENGTH = 4
+    if (localStorage.getItem('users') != null) {
+        users = JSON.parse(localStorage.getItem('users'))
+    }
 
     const logOut = () => {
         logUserOut()
@@ -16,6 +20,7 @@ function Landing({users, setUserId, logUserOut}) {
         </div>
         <div className="users-container">
             {users.map(u => <User key={u.id} user={u} setUserId={setUserId}/>)}
+            {users.length < USERS_LENGTH ? <User key={{}} user={{}} setUserId={{}}/> : null}
         </div>
     </div>
     );

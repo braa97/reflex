@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import Movie from "./Movie";
 import { useState } from "react";
 
-function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
-  const { userId } = useParams();
+function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie, userId }) {
   let user = {};
   const [search, setSearch] = useState("");
   const [moviesInCatalog, setMoviesInCatalog] = useState([...movies]);
@@ -16,9 +15,12 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
   getUserDataCallBack();
 
   const getRentedData = () => {
-    if (userId != "undefined") {
+    if (userId == "undefined") {
+      return
+    }
       let localStorageUserData = JSON.parse(localStorage.getItem("users"));
       let index = localStorageUserData.findIndex((u) => u.id == userId);
+      
       if (localStorageUserData[index].movies.length > 0) {
         return (
           <div>
@@ -39,10 +41,6 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
           </div>
         );
       }
-    } 
-    else {
-      return;
-    }
   };
 
   const handleChange = (event) => {
@@ -50,8 +48,8 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
 
     if (event.target.value == "") {
       setMoviesInCatalog(movies);
-    } else {
-      try {
+    } 
+    else {
         let newMoviesArray = [];
         movies.map((movie) => {
           if (movie.title.toLowerCase().includes(event.target.value)) {
@@ -59,9 +57,6 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie }) {
           }
         });
         setMoviesInCatalog(newMoviesArray);
-      } catch (error) {
-        console.log(error);
-      }
     }
   };
 

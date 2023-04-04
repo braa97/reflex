@@ -11,7 +11,7 @@ function Navbar({userStateId}) {
                     <Link to={"/"}><i className="fa-solid fa-house"></i>&nbsp;Home</Link>
                 </div>
                 <div id="catalog" className="nav-items">
-                    <Link to={`/${userStateId}/catalog`}><i className="fa-solid fa-clapperboard"></i>&nbsp;Catalog</Link>       
+                    <Link to={`/catalog`}><i className="fa-solid fa-clapperboard"></i>&nbsp;Catalog</Link>       
                 </div>
             </div>
         </div>

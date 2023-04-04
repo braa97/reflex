@@ -7,6 +7,8 @@ import Landing from "./components/Landing";
 import { useState } from "react";
 import Catalog from "./components/Catalog";
 import Description from "./components/Description";
+import Profile from "./components/Profile";
+import ImagePicker from "./components/ImagePicker";
 
 function App() {
   const [users, setUsers] = useState([...USERS]);
@@ -16,7 +18,7 @@ function App() {
   if (localStorage.getItem("users") == null) {
     localStorage.setItem("users", JSON.stringify([...users]));
   }
-
+  
   const getUserData = (userId) => {
     return users.find((user) => user.id == userId);
   };
@@ -29,6 +31,7 @@ function App() {
     setUserId("undefined");
   };
 
+  // Todo: Change Function name to hasUserRentedMovie
   const isUserRentedMovie = (userId, movieId) => {
     if (userId != "undefined") {
       let usersArray = [...JSON.parse(localStorage.getItem("users"))];
@@ -37,8 +40,7 @@ function App() {
         usersArray[userIndex].movies.findIndex((m) => m.id == movieId) != -1
       ) {
         return true;
-      } 
-      else {
+      } else {
         return false;
       }
     }
@@ -59,12 +61,10 @@ function App() {
         usersArray[userIndex].budget += PRICE;
         localStorage.setItem("users", JSON.stringify(usersArray));
         setUsers(usersArray);
-      } 
-      else {
+      } else {
         if (usersArray[userIndex].budget < 3) {
           alert("Insufficient funds");
-        } 
-        else {
+        } else {
           usersArray[userIndex].movies.push(movie);
           usersArray[userIndex].budget -= PRICE;
           localStorage.setItem("users", JSON.stringify(usersArray));
@@ -91,9 +91,10 @@ function App() {
           }
         />
         <Route
-          path="/:userId?/catalog"
+          path="/catalog"
           element={
             <Catalog
+              userId={userStateId}
               getUserData={getUserData}
               movies={movies}
               isUserRentedMovie={isUserRentedMovie}
@@ -102,8 +103,16 @@ function App() {
           }
         />
         <Route
-          path="/:userId?/catalog/:movieId"
+          path="/catalog/:movieId"
           element={<Description getMovieData={getMovieData} />}
+        />
+        <Route
+          path="/profile/:imageUrl?"
+          element={<Profile users={users} setUsers={setUsers} />}
+        />
+        <Route
+          path="/profile/imagePicker/:profileName?"
+          element={<ImagePicker />}
         />
       </Routes>
     </Router>
