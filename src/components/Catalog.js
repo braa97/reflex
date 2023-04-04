@@ -15,9 +15,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie, user
   getUserDataCallBack();
 
   const getRentedData = () => {
-    if (userId == "undefined") {
-      return
-    }
+    
       let localStorageUserData = JSON.parse(localStorage.getItem("users"));
       let index = localStorageUserData.findIndex((u) => u.id == userId);
       
