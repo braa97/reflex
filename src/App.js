@@ -13,12 +13,12 @@ import ImagePicker from "./components/ImagePicker";
 function App() {
   const [users, setUsers] = useState([...USERS]);
   const [movies, setMovies] = useState([...MOVIES]);
-  const [userStateId, setUserId] = useState("undefined");
+  const [userStateId, setUserId] = useState(undefined);
 
   if (localStorage.getItem("users") == null) {
     localStorage.setItem("users", JSON.stringify([...users]));
   }
-  
+
   const getUserData = (userId) => {
     return users.find((user) => user.id == userId);
   };
@@ -27,27 +27,19 @@ function App() {
     return movies.find((movie) => movie.id == movieId);
   };
 
-  const logUserOut = () => {
-    setUserId("undefined");
-  };
-
   // Todo: Change Function name to hasUserRentedMovie
   const isUserRentedMovie = (userId, movieId) => {
-    if (userId != "undefined") {
       let usersArray = [...JSON.parse(localStorage.getItem("users"))];
       let userIndex = usersArray.findIndex((u) => u.id == userId);
-      if (
-        usersArray[userIndex].movies.findIndex((m) => m.id == movieId) != -1
-      ) {
+      if (usersArray[userIndex].movies.findIndex((m) => m.id == movieId) != -1) {
         return true;
-      } else {
+      } 
+      else {
         return false;
       }
-    }
   };
 
   const rentReturnMovie = (userId, movieId, operation) => {
-    if (userId != "undefined") {
       const PRICE = 3;
       let usersArray = JSON.parse(localStorage.getItem("users"));
       let userIndex = usersArray.findIndex((u) => u.id == userId);
@@ -61,17 +53,18 @@ function App() {
         usersArray[userIndex].budget += PRICE;
         localStorage.setItem("users", JSON.stringify(usersArray));
         setUsers(usersArray);
-      } else {
+      } 
+      else {
         if (usersArray[userIndex].budget < 3) {
           alert("Insufficient funds");
-        } else {
+        } 
+        else {
           usersArray[userIndex].movies.push(movie);
           usersArray[userIndex].budget -= PRICE;
           localStorage.setItem("users", JSON.stringify(usersArray));
           setUsers(usersArray);
         }
       }
-    }
   };
 
   return (
@@ -86,7 +79,6 @@ function App() {
             <Landing
               users={users}
               setUserId={setUserId}
-              logUserOut={logUserOut}
             />
           }
         />

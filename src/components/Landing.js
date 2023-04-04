@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import User from './User';
 
-function Landing({users, setUserId, logUserOut}) {
+function Landing({users, setUserId}) {
     const USERS_LENGTH = 4
     if (localStorage.getItem('users') != null) {
         users = JSON.parse(localStorage.getItem('users'))
     }
 
-    const logOut = () => {
-        logUserOut()
+    const updateUserId = () => {
+        setUserId(undefined)
     }
 
-    logOut()
+    updateUserId()
 
     return (
         <div className="landing-container">

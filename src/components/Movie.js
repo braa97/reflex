@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Movie({ movie, userId, isUserRentedMovie, rentReturnMovie }) {
   const isUserRentedMovieCallBack = () => {
@@ -6,7 +6,6 @@ function Movie({ movie, userId, isUserRentedMovie, rentReturnMovie }) {
   };
 
   const renderButton = () => {
-    if (userId != "undefined") {
       if (isUserRentedMovieCallBack()) {
         return (
           <i className={`fa-solid fa-circle-minus`} onClick={() => rentReturnMovie(userId, movie.id, "return")}></i>
@@ -17,7 +16,6 @@ function Movie({ movie, userId, isUserRentedMovie, rentReturnMovie }) {
           <i className={`fa-solid fa-circle-plus`} onClick={() => rentReturnMovie(userId, movie.id, "rent")}></i>
         );
       }
-    }
   };
 
   return (
