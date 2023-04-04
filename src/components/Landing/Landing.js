@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import User from './User';
+import './Landing.css'
+import User from '../User/User';
 
 function Landing({users, setUserId}) {
     const USERS_LENGTH = 4

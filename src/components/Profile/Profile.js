@@ -1,5 +1,6 @@
+import './Profile.css'
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Profile({users, setUsers}) {
     let IMG_URL = "https://wallpapers.com/images/hd/netflix-profile-pictures-5yup5hd2i60x7ew3.jpg"

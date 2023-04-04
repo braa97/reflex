@@ -1,0 +1,45 @@
+.user-card {
+    display: grid;
+    width: 400px;
+    height: 400px;
+    grid-template-rows: repeat(2, 300px 50px);
+    margin: 0 auto;
+  }
+  
+  .user a {
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  
+  .user img {
+    width: 300px;
+    height: 300px;
+    border-radius: 12px;
+  }
+  
+  .addProfile {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+  }
+  
+  .addProfile:hover {
+    background-color: #0a0a0a;
+  }
+  
+  .addProfile .fa-circle-plus {
+    font-size: 9rem;
+    color: #6b6b6b;
+  }
+  
+  .user h2 {
+    margin: 4% auto;
+    color: white;
+  }
+  

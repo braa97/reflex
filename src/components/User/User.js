@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import './User.css'
+import { Link } from "react-router-dom";
 
 function User({ user, setUserId }) {
   const updateUserId = (id) => {

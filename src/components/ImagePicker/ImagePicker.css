@@ -1,0 +1,49 @@
+.ImagePicker-page {
+    display: grid;
+    margin: 3%;
+    grid-template-rows: repeat(2, 5% 95%);
+    grid-template-columns: 1fr;
+    grid-template-areas: "ImagePickerHeader" "images";
+  }
+  
+  .ImagePicker-page-header {
+    grid-area: ImagePickerHeader;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Comic Neue', cursive;
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .images-container {
+    grid-area: images;
+    display: grid;
+    grid-template-columns: repeat(6, 250px);
+    justify-content: center;
+    margin-top: 5%;
+  }
+  
+  .image-card {
+    display: grid;
+    width: 400px;
+    height: 250px;
+    grid-template-rows: repeat(2, 300px 50px);
+    margin: 0 auto;
+  }
+  
+  .image a {
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  
+  .image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+  }
+  

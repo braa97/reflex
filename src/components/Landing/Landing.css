@@ -1,0 +1,27 @@
+.landing-container {
+    display: grid;
+    grid-template-rows: repeat(2, 15% 85%);
+    grid-template-columns: 1fr;
+    grid-template-areas: "headerText" "users";
+    margin-top: 3%;
+  }
+  
+  .headerText {
+    grid-area: headerText;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Comic Neue', cursive;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 5%;
+  }
+  
+  .users-container {
+    grid-area: users;
+    display: grid;
+    grid-template-columns: repeat(4, 400px);
+    justify-content: center;
+    margin-top: 5%;
+  }

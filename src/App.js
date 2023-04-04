@@ -2,13 +2,13 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import USERS from "./data/users";
 import MOVIES from "./data/movies";
-import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
+import Navbar from "./components/Navbar/Navbar";
+import Landing from "./components/Landing/Landing";
 import { useState } from "react";
-import Catalog from "./components/Catalog";
-import Description from "./components/Description";
-import Profile from "./components/Profile";
-import ImagePicker from "./components/ImagePicker";
+import Catalog from "./components/Catalog/Catalog";
+import Description from "./components/Description/Description";
+import Profile from "./components/Profile/Profile";
+import ImagePicker from "./components/ImagePicker/ImagePicker";
 
 function App() {
   const [users, setUsers] = useState([...USERS]);
@@ -28,7 +28,7 @@ function App() {
   };
 
   // Todo: Change Function name to hasUserRentedMovie
-  const isUserRentedMovie = (userId, movieId) => {
+  const hasUserRentedMovie = (userId, movieId) => {
       let usersArray = [...JSON.parse(localStorage.getItem("users"))];
       let userIndex = usersArray.findIndex((u) => u.id == userId);
       if (usersArray[userIndex].movies.findIndex((m) => m.id == movieId) != -1) {
@@ -89,7 +89,7 @@ function App() {
               userId={userStateId}
               getUserData={getUserData}
               movies={movies}
-              isUserRentedMovie={isUserRentedMovie}
+              hasUserRentedMovie={hasUserRentedMovie}
               rentReturnMovie={rentReturnMovie}
             />
           }

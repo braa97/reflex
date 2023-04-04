@@ -1,18 +1,15 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import Movie from "./Movie";
-import { useState } from "react";
+import './Catalog.css'
+import Movie from "../Movie/Movie";
+import { useState, useEffect } from "react";
 
-function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie, userId }) {
+function Catalog({ movies, getUserData, hasUserRentedMovie, rentReturnMovie, userId }) {
   let user = {};
   const [search, setSearch] = useState("");
   const [moviesInCatalog, setMoviesInCatalog] = useState([...movies]);
 
-  const getUserDataCallBack = () => {
+  useEffect(() => {
     user = getUserData(userId);
-  };
-
-  getUserDataCallBack();
+  })
 
   const getRentedData = () => {
     
@@ -31,7 +28,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie, user
                   userId={userId}
                   key={m.id}
                   movie={m}
-                  isUserRentedMovie={isUserRentedMovie}
+                  hasUserRentedMovie={hasUserRentedMovie}
                   rentReturnMovie={rentReturnMovie}
                 />
               ))}
@@ -81,7 +78,7 @@ function Catalog({ movies, getUserData, isUserRentedMovie, rentReturnMovie, user
             userId={userId}
             key={m.id}
             movie={m}
-            isUserRentedMovie={isUserRentedMovie}
+            hasUserRentedMovie={hasUserRentedMovie}
             rentReturnMovie={rentReturnMovie}
           />
         ))}

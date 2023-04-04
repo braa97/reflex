@@ -1,12 +1,14 @@
+import './Movie.css'
 import { Link } from "react-router-dom";
 
-function Movie({ movie, userId, isUserRentedMovie, rentReturnMovie }) {
-  const isUserRentedMovieCallBack = () => {
-    return isUserRentedMovie(userId, movie.id);
+function Movie({ movie, userId, hasUserRentedMovie, rentReturnMovie }) {
+
+  const hasUserRentedMovieCallBack = () => {
+    return hasUserRentedMovie(userId, movie.id);
   };
 
   const renderButton = () => {
-      if (isUserRentedMovieCallBack()) {
+      if (hasUserRentedMovieCallBack()) {
         return (
           <i className={`fa-solid fa-circle-minus`} onClick={() => rentReturnMovie(userId, movie.id, "return")}></i>
         );

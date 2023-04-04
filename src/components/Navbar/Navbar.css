@@ -1,0 +1,53 @@
+.navbar {
+    grid-area: n;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "links logo";
+    height: 70px;
+  }
+  
+  .logo {
+    grid-area: logo;
+    display: flex;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    color: #54dbfb;
+    justify-content: end;
+    margin-right: 4%;
+  }
+  
+  .links {
+    grid-area: links;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    justify-content: start;
+    margin-left: 4%;
+  }
+  
+  .nav-items {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  .nav-items a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-items a:visited {
+    color: white;
+  }
+  
+  .logo a:visited {
+    text-decoration: none;
+    color: #54dbfb;
+  }
+  
+  .logo a {
+    text-decoration: none;
+  }

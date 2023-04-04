@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+import './Description.css'
+import { useParams } from "react-router-dom";
 
 function Description({getMovieData}) {
   const {movieId} = useParams()

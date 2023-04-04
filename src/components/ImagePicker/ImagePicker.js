@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
-import IMAGES from "../data/images";
+import './ImagePicker.css'
+import { Link, useParams } from "react-router-dom";
+import IMAGES from "../../data/images";
 import { useState } from "react";
 
 function ImagePicker() {

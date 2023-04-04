@@ -1,0 +1,29 @@
+.thumbnail {
+    cursor: pointer;
+    width: 350px;
+    height: 480px;
+  }
+  
+  .thumbnail img {
+    width: 350px;
+    height: 480px;
+    border-radius: 8px;
+  }
+  
+  .thumbnail .fa-circle-plus {
+    color: white;
+    position: absolute;
+    font-size: 1.8rem;
+    margin: 15px 0 0 310px;
+    box-shadow: 3px 3px 5px #262626;
+    border-radius: 25px;
+  }
+  
+  .thumbnail .fa-circle-minus {
+    color: white;
+    position: absolute;
+    font-size: 1.8rem;
+    margin: 10px 0 0 310px;
+    box-shadow: 3px 3px 5px #262626;
+    border-radius: 25px;
+  }

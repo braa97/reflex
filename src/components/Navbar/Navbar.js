@@ -1,10 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useParams,
-} from "react-router-dom";
+import './Navbar.css'
+import { Link } from "react-router-dom";
 
 function Navbar({ userStateId }) {
 
