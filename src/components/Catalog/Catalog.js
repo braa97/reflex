@@ -9,10 +9,15 @@ function Catalog({ movies, getUserData, hasUserRentedMovie, rentReturnMovie, use
 
   useEffect(() => {
     user = getUserData(userId);
+    if (JSON.parse(localStorage.getItem("userLoginId")) != null) {
+      userId = (JSON.parse(localStorage.getItem("userLoginId")))
+    }
   })
 
   const getRentedData = () => {
-    
+    if (!user) {
+      return
+    }
       let localStorageUserData = JSON.parse(localStorage.getItem("users"));
       let index = localStorageUserData.findIndex((u) => u.id == userId);
       

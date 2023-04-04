@@ -29,8 +29,10 @@ function Profile({users, setUsers}) {
 
     const addUser = () => {
         let usersArray = JSON.parse(localStorage.getItem('users'))
-        let lastId = usersArray[usersArray.length - 1].id
-        lastId += 1
+        if (!usersArray) {
+            usersArray = []
+        }
+        let lastId = usersArray.length != 0 ? usersArray[usersArray.length - 1].id + 1 : 1
         let newUser = {id : lastId, name: profileName, img: IMG_URL, budget: 100, movies: []}
         usersArray.push(newUser)
         localStorage.setItem('users', JSON.stringify(usersArray))

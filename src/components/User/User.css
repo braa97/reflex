@@ -19,6 +19,10 @@
     height: 300px;
     border-radius: 12px;
   }
+
+  .user img:hover {
+    border: 2px solid white;
+  }
   
   .addProfile {
     display: grid;

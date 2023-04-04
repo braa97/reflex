@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function User({ user, setUserId }) {
   const updateUserId = (id) => {
+    localStorage.setItem("userLoginId", id)
     setUserId(id);
   };
 

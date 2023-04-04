@@ -11,13 +11,9 @@ import Profile from "./components/Profile/Profile";
 import ImagePicker from "./components/ImagePicker/ImagePicker";
 
 function App() {
-  const [users, setUsers] = useState([...USERS]);
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")));
   const [movies, setMovies] = useState([...MOVIES]);
-  const [userStateId, setUserId] = useState(undefined);
-
-  if (localStorage.getItem("users") == null) {
-    localStorage.setItem("users", JSON.stringify([...users]));
-  }
+  const [userStateId, setUserId] = useState(JSON.parse(localStorage.getItem("userLoginId")));
 
   const getUserData = (userId) => {
     return users.find((user) => user.id == userId);
@@ -27,7 +23,6 @@ function App() {
     return movies.find((movie) => movie.id == movieId);
   };
 
-  // Todo: Change Function name to hasUserRentedMovie
   const hasUserRentedMovie = (userId, movieId) => {
       let usersArray = [...JSON.parse(localStorage.getItem("users"))];
       let userIndex = usersArray.findIndex((u) => u.id == userId);
@@ -77,7 +72,6 @@ function App() {
           path="/"
           element={
             <Landing
-              users={users}
               setUserId={setUserId}
             />
           }
